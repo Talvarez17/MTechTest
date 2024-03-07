@@ -19,8 +19,6 @@ export class CreateComponent {
     Status: [, Validators.required]
   });
 
-  tareas: any[] = [];
-  tareasDB: any;
 
   constructor(private fb: FormBuilder, private router: Router, private conexion: ConexionService) {
   }
@@ -30,17 +28,15 @@ export class CreateComponent {
   }
 
   add() {
-    console.log(this.Form.value);
-    
 
-    // this.conexion.post(this.Form.value).subscribe((dato: any) => {
+    this.conexion.post(this.Form.value).subscribe((dato: any) => {
 
-    setTimeout(() => {
-      this.Form.reset;
-      this.router.navigate(['/table']);
-    }, 2000);
+      setTimeout(() => {
+        this.Form.reset;
+        this.router.navigate(['/table']);
+      }, 1000);
 
-    // })
+    })
 
   }
 

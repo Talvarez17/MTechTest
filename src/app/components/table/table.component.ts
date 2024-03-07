@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { ConexionService } from 'src/app/services/conexion.service';
 
 @Component({
@@ -9,33 +8,22 @@ import { ConexionService } from 'src/app/services/conexion.service';
 })
 export class TableComponent {
 
-  employees: any = [{
-    ID: 1,
-    Name: "Juan",
-    LastName: "Perez",
-    RFC: "PERJ890101",
-    BornDate: "1990-01-01",
-    Status: "Activo"
-},
-{
-    ID: 2,
-    Name: "María",
-    LastName: "González",
-    RFC: "GONM900202",
-    BornDate: "1990-02-02",
-    Status: "Inactivo"
-}];
+  employees: any = [
+  ];
 
-
-  constructor(private fb: FormBuilder, private conexion: ConexionService) {
+  constructor(private conexion: ConexionService) {
     this.getEmployees();
-  }
 
+    this.employees.sort((a: any, b: any) => {
+      const dateA = new Date(a.BornDate);
+      const dateB = new Date(b.BornDate);
+      return dateA.getTime() - dateB.getTime();
+    });
+  }
 
   getEmployees() {
     this.conexion.get().subscribe((info: any) => {
-      this.employees = info.reverse();
-      console.log(this.employees);
+      this.employees = info;
     })
   }
 

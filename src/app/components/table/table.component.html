@@ -16,12 +16,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let emp of employees">
-                <th scope="row">{{emp.ID}}</th>
-                <td>{{emp.Name}}</td>
-                <td>{{emp.LastName}}</td>
-                <td>{{emp.RFC}}</td>
-                <td>{{emp.BornDate | date:'MM/dd/yyyy'}}</td>
-                <td>{{emp.Status}}</td>
+                <th scope="row">{{emp.id}}</th>
+                <td>{{emp.name}}</td>
+                <td>{{emp.lastName}}</td>
+                <td>{{emp.rfc}}</td>
+                <td>{{emp.bornDate | date:'MM/dd/yyyy'}}</td>
+                <td>{{emp.status}}</td>
             </tr>
         </tbody>
     </table>
