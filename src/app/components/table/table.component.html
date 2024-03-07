@@ -1,0 +1,29 @@
+<div class="p-4">
+
+    <td><button [routerLink]="['/create']" type="button" class="btn btn-primary mb-3">Insert a new employee</button>
+    </td>
+
+    <table class="table table-info table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">RFC</th>
+                <th scope="col">Born Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employees">
+                <th scope="row">{{emp.ID}}</th>
+                <td>{{emp.Name}}</td>
+                <td>{{emp.LastName}}</td>
+                <td>{{emp.RFC}}</td>
+                <td>{{emp.BornDate | date:'MM/dd/yyyy'}}</td>
+                <td>{{emp.Status}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

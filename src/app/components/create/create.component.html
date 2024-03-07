@@ -1,0 +1,79 @@
+<div class="p-4">
+    <td><button [routerLink]="['/table']" type="button" class="btn btn-primary mb-3">Go back</button></td>
+
+    <section>
+        <div class="container-fluid">
+    
+            <form (ngSubmit)="add()" [formGroup]="Form">
+    
+                <div class="mb-10 ms-3 mt-2 row flex w-full text-center text-xl font-semibold">
+                    <h3>Add a new employee</h3>
+                </div>
+    
+                <div class="mb-3 ms-3 mt-2 row">
+                    <label class="col-sm-3 col-form-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" formControlName="Name" placeholder="Name">
+                        <span class="form-text text-danger" *ngIf="valid('Name')">
+                            This field is required
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 ms-3 mt-2 row">
+                    <label class="col-sm-3 col-form-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name">
+                        <span class="form-text text-danger" *ngIf="valid('LastName')">
+                            This field is required
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 ms-3 mt-2 row">
+                    <label class="col-sm-3 col-form-label">RFC</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" formControlName="RFC" placeholder="RFC" oninput="this.value = this.value.toUpperCase()">
+                        <span class="form-text text-danger" *ngIf="valid('RFC')">
+                            This field is required
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 ms-3 mt-2 row">
+                    <label class="col-sm-3 col-form-label">Born Date</label>
+                    <div class="col-sm-9">
+                        <input type="date" class="form-control" formControlName="BornDate">
+                        <span class="form-text text-danger" *ngIf="valid('BornDate')">
+                            This field is required
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 ms-3 mt-2 row">
+                    <label class="col-sm-3 col-form-label">Status</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" formControlName="Status" class="form-select" aria-label="Default select example">
+                            <option value="NoSet">No Set</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                          </select>
+                        <span class="form-text text-danger" *ngIf="valid('Status')">
+                            This field is required
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="d-flex flex-row-reverse">
+                    <button type="submit" [disabled]="!Form.valid" class="btn btn-outline-success">
+                        <i class="bi bi-floppy2-fill"></i>
+                    </button>
+    
+                </div>
+    
+            </form>
+    
+        </div>
+    </section>
+
+</div>
